@@ -1,0 +1,180 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-lg);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-sidebar);
+  min-height: var(--topbar-h);
+  flex-shrink: 0;
+  gap: var(--space-md);
+}
+
+/* ── Left Section ────────────────────────────────────────────────────── */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.menuBtn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all var(--motion-fast);
+  flex-shrink: 0;
+  margin-bottom: var(--space-xs);
+}
+
+.menuBtn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+}
+
+/* ── Breadcrumb ──────────────────────────────────────────────────────── */
+.breadcrumb {
+  margin-bottom: 2px;
+}
+
+.breadcrumbList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+}
+
+.breadcrumbItem {
+  display: flex;
+  align-items: center;
+  font-size: var(--type-micro);
+  color: var(--text-dim);
+  letter-spacing: 0.3px;
+}
+
+.breadcrumbSep {
+  margin: 0 6px;
+  opacity: 0.5;
+}
+
+.breadcrumbActive {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* ── Title ───────────────────────────────────────────────────────────── */
+.title {
+  font-size: var(--type-h3);
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  letter-spacing: -0.4px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Right Section ───────────────────────────────────────────────────── */
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.chips {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.chip {
+  padding: 6px 14px;
+  background: var(--bg-card);
+  border: 1px solid;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  transition: all var(--motion-fast);
+}
+
+.chip:hover {
+  transform: var(--state-hover-lift);
+  box-shadow: var(--state-hover-glow);
+}
+
+.chipLabel {
+  font-size: var(--type-micro);
+  color: var(--text-dim);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.chipVal {
+  font-size: var(--type-caption);
+  font-weight: 800;
+  font-family: var(--font-body);
+}
+
+/* ── Insights Toggle ─────────────────────────────────────────────────── */
+.insightsBtn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  border: 1px solid var(--border-mid);
+  transition: all var(--motion-fast);
+}
+
+.insightsBtn:hover {
+  background: rgba(99, 102, 241, 0.08);
+  color: var(--indigo);
+  border-color: var(--indigo);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .menuBtn {
+    display: flex;
+  }
+
+  .insightsBtn {
+    display: flex;
+  }
+
+  .left {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .breadcrumb {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .chips {
+    display: none;
+  }
+
+  .topbar {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .title {
+    font-size: var(--type-body);
+  }
+}

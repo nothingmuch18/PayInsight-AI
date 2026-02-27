@@ -1,0 +1,203 @@
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--motion-normal);
+  z-index: 100;
+}
+
+/* ── Brand ────────────────────────────────────────────────────────────── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.brandIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--green), var(--indigo));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.brand:hover .brandIcon {
+  transform: scale(1.05) rotate(-5deg);
+  box-shadow: var(--glow-green);
+}
+
+.brandName {
+  font-size: var(--type-body);
+  font-weight: 800;
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.brandTag {
+  font-size: var(--type-micro);
+  color: var(--text-dim);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.closeBtn {
+  display: none;
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all var(--motion-fast);
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+}
+
+/* ── Navigation ──────────────────────────────────────────────────────── */
+.nav {
+  flex: 1;
+  padding: var(--space-sm) 0;
+  overflow-y: auto;
+}
+
+.sectionLabel {
+  font-size: var(--type-micro);
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: var(--space-sm) var(--space-md) var(--space-xs);
+}
+
+.sectionLabelMt {
+  margin-top: var(--space-lg);
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: 10px var(--space-md);
+  border: none;
+  border-left: 3px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: var(--type-caption);
+  font-weight: 500;
+  text-align: left;
+  transition: all var(--motion-fast);
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.navBtn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateX(2px);
+}
+
+.navBtnActive {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.12) 0%, transparent 100%);
+  border-left: 3px solid var(--green);
+  color: var(--green) !important;
+}
+
+.navIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* ── Stats ────────────────────────────────────────────────────────────── */
+.statList {
+  padding: 0;
+  margin: 0;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px var(--space-md);
+  border-radius: var(--radius-sm);
+  margin: 0 var(--space-sm);
+  transition: background var(--motion-fast);
+}
+
+.statRow:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.statLabel {
+  font-size: var(--type-overline);
+  color: var(--text-faint);
+}
+
+.statValue {
+  font-size: var(--type-overline);
+  font-weight: 700;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────── */
+.footer {
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--type-micro);
+  color: var(--text-dim);
+  letter-spacing: 0.8px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.version {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--green);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+}
+
+/* ── Mobile Responsive ───────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+  }
+
+  .closeBtn {
+    display: flex;
+  }
+}

@@ -1,0 +1,174 @@
+.panel {
+  width: var(--right-w);
+  flex-shrink: 0;
+  background: var(--bg-sidebar);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--motion-normal);
+  z-index: 100;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────── */
+.head {
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.headTitle {
+  font-size: var(--type-overline);
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--text-muted);
+  letter-spacing: 0.6px;
+  margin: 0;
+}
+
+.headSub {
+  font-size: var(--type-micro);
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.closeBtn {
+  display: none;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all var(--motion-fast);
+  flex-shrink: 0;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+}
+
+/* ── Insight Cards ───────────────────────────────────────────────────── */
+.insightList {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.insightCard {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--border);
+  transition: all var(--motion-fast);
+  cursor: default;
+}
+
+.insightCard:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.insightTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  margin-bottom: 4px;
+}
+
+.insightTitle {
+  font-size: var(--type-caption);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.insightTag {
+  font-size: var(--type-micro);
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+.insightDesc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Shortcuts ───────────────────────────────────────────────────────── */
+.shortcuts {
+  padding: var(--space-sm) var(--space-md);
+  border-top: 1px solid var(--border);
+}
+
+.shortcutsLabel {
+  font-size: var(--type-micro);
+  color: var(--text-dim);
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  margin-bottom: var(--space-sm);
+}
+
+.shortcutBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  width: 100%;
+  text-align: left;
+  padding: var(--space-sm) var(--space-sm);
+  margin-bottom: var(--space-xs);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-faint);
+  font-size: var(--type-overline);
+  line-height: 1.5;
+  transition: all var(--motion-fast);
+  cursor: pointer;
+  min-height: 40px;
+}
+
+.shortcutBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--indigo);
+  background: rgba(99, 102, 241, 0.05);
+  box-shadow: var(--glow-indigo);
+  transform: translateX(-2px);
+}
+
+.shortcutArrow {
+  margin-left: auto;
+  opacity: 0;
+  transition: opacity var(--motion-fast);
+  flex-shrink: 0;
+}
+
+.shortcutBtn:hover .shortcutArrow {
+  opacity: 1;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(100%);
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.3);
+    width: 280px;
+  }
+
+  .panelOpen {
+    transform: translateX(0);
+  }
+
+  .closeBtn {
+    display: flex;
+  }
+}
